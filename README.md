@@ -3,7 +3,7 @@ This is a repository where I'll store and further develop the WYSIWYG interface 
 
 I've developed this project using the Processing language due to my choice in hardware; the FadeCandy microcontroller uses its own FadeCandy software, which is written in the Processing language.  It's essentially a Java-based language that allows the User to create graphically-based programs via their coding.  For the purposes of my project, I use Processing to generate a sound-responsive graphical WYSIWYG interface that is projected to the LED lights.  There are several controls that allow the User to adjust the way the LEDs respond to the audio signals that it receives from the computer's system sounds.
 
-You can see a video sample of this LED light system at work by checking out this link:  https://youtu.be/QIzyGim3IFo
+You can see a video sample of this LED light system at work by checking out this link:  https://www.youtube.com/watch?v=QhrI7acRDiA
 
 The Purpose Of This Project:
 ----------------------------
