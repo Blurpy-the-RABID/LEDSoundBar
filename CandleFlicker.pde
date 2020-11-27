@@ -1,5 +1,12 @@
-// This class will produce a Rect() object that will flicker its opacity at a randomized rate, imitating the flickering brightness of a candle flame.
 class CandleFlicker {
+// This class will produce a Rect() object that will flicker its opacity at a randomized rate, imitating the flickering brightness of a candle flame.
+// This class takes in a set of color values, a range in which the provided color values are allowed to fluctuate within, a set of size and positioning
+// values, and a cycle length (measured in number of frames).  This class will then render a rect() object of the specified color, and it'll "flicker" the
+// color at a speed based on the provided cycle length.
+
+// This class is used in an array to place a CandleFlicker object in front of every LED sensor dot in the Top Gradient Bar; this effect gives the LEDSoundBar
+// a sense of dynamic life to it, as it'll cause the colors assigned to each LED to flicker like a candle flame.
+
   // This CandleFlicker object will have the following parameters:
   int clrMode; // This will dictate the colorMode() of this CandleFlicker object; can be set to RGB or HSB.
   float colorRange; // Sets the range for all color elements.
