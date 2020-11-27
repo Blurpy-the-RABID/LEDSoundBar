@@ -1,4 +1,12 @@
 class ColorScroller4 {
+// This Class is the primary driving force behind what makes the Top Gradient Bar work.  This class takes in two color values, and will then scroll from
+// one color to the other based on the provided cycle length (determined by the LEDSoundBar's BPM variable).  This class works with both RGB and HSB color
+// modes, but it's recommended that the User specify HSB because it's much more aesthetically pleasing to the human eye.
+//
+// Other major capabilities is to set the colorPercentMode variable to True, as it'll take in any updates from the getPercentValues() function to only advance
+// a partial distance between Colors 1 & 2 instead of advancing 100% from one color to the other color.  This allows the LEDSoundBar sketch to take the audio's
+// Hi, Mid, and Low ranges and apply them as a percentage to how far a ColorScroller4 object is transitioning between its two colors per cycle.
+
   // Define Class Parameters:
   int clrMode; // Specifies if colorMode() is set to RGB or HSB.
   float newColorMultiplier = 1.0; // Used to specify the percentile to be scrolled to when colorPercentMode is set to True. // = 0.5;
@@ -8,13 +16,11 @@ class ColorScroller4 {
   float c1a, c1b, c1c, c1alpha; // clr1 Color Values.
   float c2a, c2b, c2c, c2alpha; // clr2 Color Values.
   float v1, v2, v3, vAlpha; // Current Color Values.
-  float v1Incr, v2Incr, v3Incr, vAlphaIncr;
+  float v1Incr, v2Incr, v3Incr, vAlphaIncr; // These will serve as records of each color value's incremental size (measured in frames) per cycle.
   float v1NewMax, v2NewMax, v3NewMax, vAlphaNewMax; // This will be the new target vMax color values.
   float v1OldMax, v2OldMax, v3OldMax, vAlphaOldMax; // These are the last set of vMax color values from the last cycle.
   
   color clr1, clr2, currentColor;
-//  clr1 = color(25, 100, 100, 0);
-//  clr2 = color(100, 25, 100, 100);
 
   boolean colorPercentMode; // Determines if the Color Scroller is to use a percentile to scroll between clr1 and clr2. // = true;
   boolean advanceColorValues = false; // Determines if the Color Scroller is to advance the color values from clr1 towards clr2 or vice-versa. // = true;
@@ -86,7 +92,7 @@ class ColorScroller4 {
     cycleLength = newCycleLength;
   }
   
-  // This function will take in a new percentage value, and then recalculate all of its relevant parameters// values.
+  // This function will take in a new percentage value, and then recalculate all of the relevant parameter values.
   void getPercentValue(float newPercent) {
     // This function should only work when colorPercentMode is set to True.
     if (colorPercentMode == true) {
@@ -315,6 +321,7 @@ class ColorScroller4 {
           if (v1 < c2a) {
             v1 += v1Incr;
           }
+          
           else if (v1 < c2a) {
             v1 = c2a;
           }
@@ -334,6 +341,7 @@ class ColorScroller4 {
           if (v2 < c2b) {
             v2 += v2Incr;
           }
+          
           else if (v2 < c2b) {
             v2 = c2b;
           }
@@ -353,6 +361,7 @@ class ColorScroller4 {
           if (v3 < c2c) {
             v3 += v3Incr;
           }
+          
           else if (v3 < c2c) {
             v3 = c2c;
           }
@@ -372,6 +381,7 @@ class ColorScroller4 {
           if (vAlpha < c2alpha) {
             vAlpha += vAlphaIncr;
           }
+          
           else if (vAlpha < c2alpha) {
             vAlpha = c2alpha;
           }
@@ -383,6 +393,7 @@ class ColorScroller4 {
           if (v1 < c1a) {
             v1 += v1Incr;
           }
+          
           else if (v1 < c1a) {
             v1 = c1a;
           }
@@ -392,6 +403,7 @@ class ColorScroller4 {
           if (v1 > c1a) {
             v1 -= v1Incr;
           }
+          
           else if (v1 < c1a) {
             v1 = c1a;
           }
@@ -401,6 +413,7 @@ class ColorScroller4 {
           if (v2 < c1b) {
             v2 += v2Incr;
           }
+          
           else if (v2 < c1b) {
             v2 = c1b;
           }
@@ -410,6 +423,7 @@ class ColorScroller4 {
           if (v2 > c1b) {
             v2 -= v2Incr;
           }
+          
           else if (v2 < c1b) {
             v2 = c1b;
           }
@@ -419,6 +433,7 @@ class ColorScroller4 {
           if (v3 < c1c) {
             v3 += v3Incr;
           }
+          
           else if (v3 < c1c) {
             v3 = c1c;
           }
@@ -428,6 +443,7 @@ class ColorScroller4 {
           if (v3 > c1c) {
             v3 -= v3Incr;
           }
+          
           else if (v3 < c1c) {
             v3 = c1c;
           }
@@ -437,6 +453,7 @@ class ColorScroller4 {
           if (vAlpha < c1alpha) {
             vAlpha += vAlphaIncr;
           }
+          
           else if (vAlpha < c1alpha) {
             vAlpha = c1alpha;
           }
@@ -446,6 +463,7 @@ class ColorScroller4 {
           if (vAlpha > c1alpha) {
             vAlpha -= vAlphaIncr;
           }
+          
           else if (vAlpha < c1alpha) {
             vAlpha = c1alpha;
           }
