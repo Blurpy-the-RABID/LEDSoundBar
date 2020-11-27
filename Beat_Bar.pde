@@ -1,6 +1,8 @@
+class Beat_Bar {
 // This class will generate a rect() object that will pulse to the new dimensional values that it's given every cycle, and will then smoothly shrink back to its
 // default size for the current cycle.  The concept is to create a bar that pulses with the bass of the incoming audio.
-class Beat_Bar {
+// NOTE:  This class is an experimental WIP, and may end up being abandoned if deemed not worthwhile to pursue further.
+  
   // Define Class Parameters:
   color fillColor; // Used to define the Beat_Bar's fill color.
   int xCoord, yCoord; // Used to define the Beat_Bar's X & Y coordinates.
@@ -58,6 +60,7 @@ class Beat_Bar {
       rect(xCoord, yCoord, xDim, yDim);
       noFill();
     }
+    
     else {
       xDim -= xIncr;
       if (xDim <= xMinDim) {
@@ -86,6 +89,7 @@ class Beat_Bar {
       if (newXDim < xMaxDim) {
         newXDim = xMaxDim;
       }
+      
       else if (newXDim > xMinDim) {
         newXDim = xMinDim;
       }
@@ -94,6 +98,7 @@ class Beat_Bar {
       if (newYDim < yMaxDim) {
         newYDim = yMaxDim;
       }
+      
       else if (newYDim > yMinDim) {
         newYDim = yMinDim;
       }
@@ -106,10 +111,12 @@ class Beat_Bar {
         yDim = int(newYDim);
       }
     }
+    
     else {
       if (newXDim > xMaxDim) {
         newXDim = xMaxDim;
       }
+      
       else if (newXDim < xMinDim) {
         newXDim = xMinDim;
       }
@@ -118,6 +125,7 @@ class Beat_Bar {
       if (newYDim > yMaxDim) {
         newYDim = yMaxDim;
       }
+      
       else if (newYDim < yMinDim) {
         newYDim = yMinDim;
       }
