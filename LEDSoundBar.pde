@@ -35,7 +35,8 @@ color inter12, inter23, inter34, inter14;
 //=============================================================
 color clr1, clr2, clr3, clr4, clr5, clr6, clr7, clr8, clr9, clr10, clr11, clr12, clr13, clr14, clr15, clr16, clr17, clr18, clr19, clr20, clr21, clr22, clr23, clr24, clr25, clr26, clr27, clr28, clr29, clr30, clr31, clr32, clr33, clr34, clr35, clr36, clr37, clr38, clr39, clr40, clr41, clr42, clr43, clr44; // HSB colors
 color r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12; // RGB colors
-ColorScroller4 clrScr1, clrScr2, clrScr3, clrScr4, clrScr5, clrScr6, subClrScr1, subClrScr2, subClrScr3; // ColorScroller4 colors
+//ColorScroller4 clrScr1, clrScr2, clrScr3, clrScr4, clrScr5, clrScr6, subClrScr1, subClrScr2, subClrScr3; // ColorScroller4 colors
+ColorScroller5 clrScr1, clrScr2, clrScr3, clrScr4, clrScr5, clrScr6, subClrScr1, subClrScr2, subClrScr3; // ColorScroller5 colors
 boolean LEDBarOn = true; // This will be used to turn off the LED Bar whenever the Backspace key is pressed.
 
 // FX_Pulse variables
@@ -297,31 +298,53 @@ void setup() {
   sPulse4 = new FX_Pulse_S((bpm * 0.5), clickColor1, clickColor3, (width + pulse1SizeX), pulse1SizeY, (0 - pulse1SizeX), pulse1SizeY, pulse1SizeX, pulse1SizeY, false);
   // FX_Pulse_S(float beatsPerMin, color pColorA, color pColorB, int xStart, int yStart, int xEnd, int yEnd, float pWidth, float pHeight, boolean LtoR)
   
-  // Define ColorScroller4 objects.
-  clrScr1 = new ColorScroller4(clrMode, clr2, clr11, cycleLength * 1, true); // Almost full color spectrum.  Uncomment this line for the default color setting.
-
-  clrScr2 = new ColorScroller4(clrMode, clr17, clr16, cycleLength * 1, true); // Original setting of Blue & Violet appearing at side edges of LED Bar.
+  //// Define ColorScroller4 objects.
+  //clrScr1 = new ColorScroller4(clrMode, clr2, clr11, cycleLength * 1, true); // Almost full color spectrum.  Uncomment this line for the default color setting.
+  //clrScr2 = new ColorScroller4(clrMode, clr17, clr16, cycleLength * 1, true); // Original setting of Blue & Violet appearing at side edges of LED Bar.
+  //clrScr3 = new ColorScroller4(clrMode, clr9, clr10, cycleLength * 1, true);
   
-  clrScr3 = new ColorScroller4(clrMode, clr9, clr10, cycleLength * 1, true);
+  //// This if-else statement tests out how things would look using RGB instead of HSB.  It looks like ass.
+  //if (clrMode == RGB) {
+  //  clrScr4 = new ColorScroller4(clrMode, r2, r5, cycleLength * 1, true);
+  //  clrScr5 = new ColorScroller4(clrMode, r8, clrScr4.getColor(), cycleLength * 1, true);
+  //  clrScr6 = new ColorScroller4(clrMode, clrScr5.getColor(), r2, cycleLength * 1, true);
+    
+  //  subClrScr1 = new ColorScroller4(clrMode, clickColor1a, clickColor1b, cycleLength * 1, true);
+  //  subClrScr2 = new ColorScroller4(clrMode, clickColor2a, clickColor2b, cycleLength * 1, true);
+  //  subClrScr3 = new ColorScroller4(clrMode, clickColor3a, clickColor3b, cycleLength * 1, true);
+  //}
+  //else {
+  //  clrScr4 = new ColorScroller4(clrMode, clr2, clickColor1, cycleLength * 1, true);
+  //  clrScr5 = new ColorScroller4(clrMode, clrScr4.getColor(), clickColor2, cycleLength * 1, true);
+  //  clrScr6 = new ColorScroller4(clrMode, clrScr5.getColor(), clickColor3, cycleLength * 1, true);
+    
+  //  subClrScr1 = new ColorScroller4(clrMode, clickColor1a, clickColor1b, cycleLength * 1, true);
+  //  subClrScr2 = new ColorScroller4(clrMode, clickColor2a, clickColor2b, cycleLength * 1, true);
+  //  subClrScr3 = new ColorScroller4(clrMode, clickColor3a, clickColor3b, cycleLength * 1, true);
+  
+    // Define ColorScroller5 objects.
+  clrScr1 = new ColorScroller5(clrMode, clr2, clr11, cycleLength * 1, true); // Almost full color spectrum.  Uncomment this line for the default color setting.
+  clrScr2 = new ColorScroller5(clrMode, clr17, clr16, cycleLength * 1, true); // Original setting of Blue & Violet appearing at side edges of LED Bar.
+  clrScr3 = new ColorScroller5(clrMode, clr9, clr10, cycleLength * 1, true);
   
   // This if-else statement tests out how things would look using RGB instead of HSB.  It looks like ass.
   if (clrMode == RGB) {
-    clrScr4 = new ColorScroller4(clrMode, r2, r5, cycleLength * 1, true);
-    clrScr5 = new ColorScroller4(clrMode, r8, clrScr4.getColor(), cycleLength * 1, true);
-    clrScr6 = new ColorScroller4(clrMode, clrScr5.getColor(), r2, cycleLength * 1, true);
+    clrScr4 = new ColorScroller5(clrMode, r2, r5, cycleLength * 1, true);
+    clrScr5 = new ColorScroller5(clrMode, r8, clrScr4.getColor(), cycleLength * 1, true);
+    clrScr6 = new ColorScroller5(clrMode, clrScr5.getColor(), r2, cycleLength * 1, true);
     
-    subClrScr1 = new ColorScroller4(clrMode, clickColor1a, clickColor1b, cycleLength * 1, true);
-    subClrScr2 = new ColorScroller4(clrMode, clickColor2a, clickColor2b, cycleLength * 1, true);
-    subClrScr3 = new ColorScroller4(clrMode, clickColor3a, clickColor3b, cycleLength * 1, true);
+    subClrScr1 = new ColorScroller5(clrMode, clickColor1a, clickColor1b, cycleLength * 1, true);
+    subClrScr2 = new ColorScroller5(clrMode, clickColor2a, clickColor2b, cycleLength * 1, true);
+    subClrScr3 = new ColorScroller5(clrMode, clickColor3a, clickColor3b, cycleLength * 1, true);
   }
   else {
-    clrScr4 = new ColorScroller4(clrMode, clr2, clickColor1, cycleLength * 1, true);
-    clrScr5 = new ColorScroller4(clrMode, clrScr4.getColor(), clickColor2, cycleLength * 1, true);
-    clrScr6 = new ColorScroller4(clrMode, clrScr5.getColor(), clickColor3, cycleLength * 1, true);
+    clrScr4 = new ColorScroller5(clrMode, clr2, clickColor1, cycleLength * 1, true);
+    clrScr5 = new ColorScroller5(clrMode, clrScr4.getColor(), clickColor2, cycleLength * 1, true);
+    clrScr6 = new ColorScroller5(clrMode, clrScr5.getColor(), clickColor3, cycleLength * 1, true);
     
-    subClrScr1 = new ColorScroller4(clrMode, clickColor1a, clickColor1b, cycleLength * 1, true);
-    subClrScr2 = new ColorScroller4(clrMode, clickColor2a, clickColor2b, cycleLength * 1, true);
-    subClrScr3 = new ColorScroller4(clrMode, clickColor3a, clickColor3b, cycleLength * 1, true);
+    subClrScr1 = new ColorScroller5(clrMode, clickColor1a, clickColor1b, cycleLength * 1, true);
+    subClrScr2 = new ColorScroller5(clrMode, clickColor2a, clickColor2b, cycleLength * 1, true);
+    subClrScr3 = new ColorScroller5(clrMode, clickColor3a, clickColor3b, cycleLength * 1, true);
   }
   
   // Define Beat_Bar objects.
@@ -536,7 +559,6 @@ void setup() {
 
 void draw() {
   noStroke();
-  
 //=========================================================================
 // Render LED Bar & Visualization Areas
 //=========================================================================
@@ -558,23 +580,33 @@ void draw() {
   
   // Redefine our experimental ColorScroller4 objects.
   if (smoothGradOn == true) {
-    subClrScr1.redefineColors(clickColor1a, clickColor1b);
-    subClrScr2.redefineColors(clickColor2a, clickColor2b);
-    subClrScr3.redefineColors(clickColor3a, clickColor3b);
-    
-    clrScr4.redefineColors(clickColor1, clickColor2);
-    clrScr5.redefineColors(clrScr4.getColor(), clickColor2);
-    clrScr6.redefineColors(clrScr5.getColor(), clickColor3);
+    //subClrScr1.redefineColors(clickColor1a, clickColor1b);
+    //subClrScr2.redefineColors(clickColor2a, clickColor2b);
+    //subClrScr3.redefineColors(clickColor3a, clickColor3b);
+    //clrScr4.redefineColors(clickColor1, clickColor2);
+    //clrScr5.redefineColors(clrScr4.getColor(), clickColor2);
+    //clrScr6.redefineColors(clrScr5.getColor(), clickColor3);
+    subClrScr1.setColors(clickColor1a, clickColor1b);
+    subClrScr2.setColors(clickColor2a, clickColor2b);
+    subClrScr3.setColors(clickColor3a, clickColor3b);
+    clrScr4.setColors(clickColor1, clickColor2);
+    clrScr5.setColors(clrScr4.getColor(), clickColor2);
+    clrScr6.setColors(clrScr5.getColor(), clickColor3);
   }
   
   else if (smoothGradOn == false) {
-    subClrScr1.redefineColors(clickColor1a, clickColor1b);
-    subClrScr2.redefineColors(clickColor2a, clickColor2b);
-    subClrScr3.redefineColors(clickColor3a, clickColor3b);
-    
-    clrScr4.redefineColors(clickColor1, clickColor2);
-    clrScr5.redefineColors(clickColor2, clrScr4.getColor());
-    clrScr6.redefineColors(clickColor3, clrScr5.getColor());
+    //subClrScr1.redefineColors(clickColor1a, clickColor1b);
+    //subClrScr2.redefineColors(clickColor2a, clickColor2b);
+    //subClrScr3.redefineColors(clickColor3a, clickColor3b);
+    //clrScr4.redefineColors(clickColor1, clickColor2);
+    //clrScr5.redefineColors(clickColor2, clrScr4.getColor());
+    //clrScr6.redefineColors(clickColor3, clrScr5.getColor());
+    subClrScr1.setColors(clickColor1a, clickColor1b);
+    subClrScr2.setColors(clickColor2a, clickColor2b);
+    subClrScr3.setColors(clickColor3a, clickColor3b);
+    clrScr4.setColors(clickColor1, clickColor2);
+    clrScr5.setColors(clickColor2, clrScr4.getColor());
+    clrScr6.setColors(clickColor3, clrScr5.getColor());
   }
   
   // The following lines will define the experimental 6 gradients across the top of the LED Bar, which mirror themselves at the center point of the LED Bar.
@@ -748,7 +780,8 @@ void draw() {
   setGradient(gradBoxLocX, (gradBoxLocY - gradBoxSizeY), gradBoxSizeX, gradBoxSizeY, clr1, clrScr1.getColor(), Y_AXIS);
     
 // The following are the second and third gradient boxes in the middle of the rendering area.
-  clrScr3.redefineColors(clrScr2.getColor(), clr10);
+  //clrScr3.redefineColors(clrScr2.getColor(), clr10);
+  clrScr3.setColors(clrScr2.getColor(), clr10);
   fill(clrScr2.getColor());
   setGradient((gradBoxLocX + gradBoxSizeX), (gradBoxLocY - gradBoxSizeY), gradBoxSizeX, gradBoxSizeY, clr17, clrScr2.getColor(), X_AXIS);
   setGradient((gradBoxLocX + (gradBoxSizeX * 2)), (gradBoxLocY - gradBoxSizeY), gradBoxSizeX, gradBoxSizeY, clrScr3.getColor(), clr17, X_AXIS);
@@ -949,35 +982,44 @@ void draw() {
     
     // Update all ColorScroller objects every frame.
     clrScr1.update();
-    clrScr1.redefineCycleLength(cycleLength);
+    clrScr1.setCycleLength(cycleLength);
+//    clrScr1.redefineCycleLength(cycleLength);
     
     clrScr2.update();
-    clrScr2.redefineCycleLength(cycleLength);
+    clrScr2.setCycleLength(cycleLength);
+//    clrScr2.redefineCycleLength(cycleLength);
     
     clrScr3.update();
-    clrScr3.redefineCycleLength(cycleLength);
+    clrScr3.setCycleLength(cycleLength);
+//    clrScr3.redefineCycleLength(cycleLength);
     
     clrScr4.update();
-    clrScr4.redefineCycleLength(cycleLength);
+    clrScr4.setCycleLength(cycleLength);
+//    clrScr4.redefineCycleLength(cycleLength);
     
     clrScr5.update();
-    clrScr5.redefineCycleLength(cycleLength);
+    clrScr5.setCycleLength(cycleLength);
+//    clrScr5.redefineCycleLength(cycleLength);
     
     clrScr6.update();
-    clrScr6.redefineCycleLength(cycleLength);
+    clrScr6.setCycleLength(cycleLength);
+//    clrScr6.redefineCycleLength(cycleLength);
     
     // Redefine clickColor1/2/3.
     clickColor1 = subClrScr1.getColor();
     subClrScr1.update();
-    subClrScr1.redefineCycleLength(cycleLength * 1);
+    subClrScr1.setCycleLength(cycleLength * 1);
+//    subClrScr1.redefineCycleLength(cycleLength * 1);
     
     clickColor2 = subClrScr2.getColor();
     subClrScr2.update();
-    subClrScr2.redefineCycleLength(cycleLength * 1);
+    subClrScr2.setCycleLength(cycleLength * 1);
+//    subClrScr2.redefineCycleLength(cycleLength * 1);
     
     clickColor3 = subClrScr3.getColor();
     subClrScr3.update();
-    subClrScr3.redefineCycleLength(cycleLength * 1);
+    subClrScr3.setCycleLength(cycleLength * 1);
+//    subClrScr3.redefineCycleLength(cycleLength * 1);
     
 //=========================================================================
 // START OF CANDLEFLICKER ARRAY DISPLAY
@@ -1111,9 +1153,12 @@ void draw() {
       }
     }
     
-    subClrScr1.getPercentValue(subColorPercent);
-    subClrScr2.getPercentValue(subColorPercent);
-    subClrScr3.getPercentValue(subColorPercent);
+    //subClrScr1.getPercentValue(subColorPercent);
+    //subClrScr2.getPercentValue(subColorPercent);
+    //subClrScr3.getPercentValue(subColorPercent);
+    subClrScr1.setPercentValue(subColorPercent);
+    subClrScr2.setPercentValue(subColorPercent);
+    subClrScr3.setPercentValue(subColorPercent);
     //-----------------------------------------------------------------
     // END OF SubColor Processing
     //-----------------------------------------------------------------
@@ -1184,53 +1229,74 @@ void draw() {
 
     // We convert the hi/mid/lowAvg values into a percentage, and then we magnify them by their appropriate hi/mid/lowFreqMagnify variables.
     // We then pass each of these totals to each of our ColorScroller objects.
-    clrScr1.getPercentValue((hiAvg / 100) * hiFreqMagnify);
-    clrScr2.getPercentValue((midAvg / 100) * midFreqMagnify);
-    clrScr3.getPercentValue((lowAvg / 100) * lowFreqMagnify);
+    clrScr1.setPercentValue((hiAvg / 100) * hiFreqMagnify);
+    clrScr2.setPercentValue((midAvg / 100) * midFreqMagnify);
+    clrScr3.setPercentValue((lowAvg / 100) * lowFreqMagnify);
 
 //===============================================================================
 // START OF AUDIO MODE TOGGLE CONTROLS
 //===============================================================================
     if (hiMidLowModeOn == true) {
-      clrScr4.getPercentValue((hiAvg / 100) * hiFreqMagnify);
-      clrScr5.getPercentValue((midAvg / 100) * midFreqMagnify);
-      clrScr6.getPercentValue((lowAvg / 100) * lowFreqMagnify);
+      //clrScr4.getPercentValue((hiAvg / 100) * hiFreqMagnify);
+      //clrScr5.getPercentValue((midAvg / 100) * midFreqMagnify);
+      //clrScr6.getPercentValue((lowAvg / 100) * lowFreqMagnify);
+      clrScr4.setPercentValue((hiAvg / 100) * hiFreqMagnify);
+      clrScr5.setPercentValue((midAvg / 100) * midFreqMagnify);
+      clrScr6.setPercentValue((lowAvg / 100) * lowFreqMagnify);
     }
     
     else if (hiLowMidModeOn == true) {
-      clrScr4.getPercentValue((hiAvg / 100) * hiFreqMagnify);
-      clrScr5.getPercentValue((midAvg / 100) * lowFreqMagnify);
-      clrScr6.getPercentValue((lowAvg / 100) * midFreqMagnify);
+      //clrScr4.getPercentValue((hiAvg / 100) * hiFreqMagnify);
+      //clrScr5.getPercentValue((midAvg / 100) * lowFreqMagnify);
+      //clrScr6.getPercentValue((lowAvg / 100) * midFreqMagnify);
+      clrScr4.setPercentValue((hiAvg / 100) * hiFreqMagnify);
+      clrScr5.setPercentValue((midAvg / 100) * lowFreqMagnify);
+      clrScr6.setPercentValue((lowAvg / 100) * midFreqMagnify);
     }
     
     else if (midHiLowModeOn == true) {
-      clrScr4.getPercentValue((midAvg / 100) * midFreqMagnify);
-      clrScr5.getPercentValue((hiAvg / 100) * hiFreqMagnify);
-      clrScr6.getPercentValue((lowAvg / 100) * lowFreqMagnify);
+      //clrScr4.getPercentValue((midAvg / 100) * midFreqMagnify);
+      //clrScr5.getPercentValue((hiAvg / 100) * hiFreqMagnify);
+      //clrScr6.getPercentValue((lowAvg / 100) * lowFreqMagnify);
+      clrScr4.setPercentValue((midAvg / 100) * midFreqMagnify);
+      clrScr5.setPercentValue((hiAvg / 100) * hiFreqMagnify);
+      clrScr6.setPercentValue((lowAvg / 100) * lowFreqMagnify);
     }
     
     else if (midLowHiModeOn == true) {
-      clrScr4.getPercentValue((midAvg / 100) * midFreqMagnify);
-      clrScr5.getPercentValue((hiAvg / 100) * lowFreqMagnify);
-      clrScr6.getPercentValue((lowAvg / 100) * hiFreqMagnify);
+      //clrScr4.getPercentValue((midAvg / 100) * midFreqMagnify);
+      //clrScr5.getPercentValue((hiAvg / 100) * lowFreqMagnify);
+      //clrScr6.getPercentValue((lowAvg / 100) * hiFreqMagnify);
+      clrScr4.setPercentValue((midAvg / 100) * midFreqMagnify);
+      clrScr5.setPercentValue((hiAvg / 100) * lowFreqMagnify);
+      clrScr6.setPercentValue((lowAvg / 100) * hiFreqMagnify);
     }
     
     else if (lowMidHiModeOn == true) {
-      clrScr4.getPercentValue((lowAvg / 100) * lowFreqMagnify);
-      clrScr5.getPercentValue((midAvg / 100) * midFreqMagnify);
-      clrScr6.getPercentValue((hiAvg / 100) * hiFreqMagnify);
+      //clrScr4.getPercentValue((lowAvg / 100) * lowFreqMagnify);
+      //clrScr5.getPercentValue((midAvg / 100) * midFreqMagnify);
+      //clrScr6.getPercentValue((hiAvg / 100) * hiFreqMagnify);
+      clrScr4.setPercentValue((lowAvg / 100) * lowFreqMagnify);
+      clrScr5.setPercentValue((midAvg / 100) * midFreqMagnify);
+      clrScr6.setPercentValue((hiAvg / 100) * hiFreqMagnify);
     }
     
     else if (lowHiMidModeOn == true) {
-      clrScr4.getPercentValue((lowAvg / 100) * lowFreqMagnify);
-      clrScr5.getPercentValue((midAvg / 100) * hiFreqMagnify);
-      clrScr6.getPercentValue((hiAvg / 100) * midFreqMagnify);
+      //clrScr4.getPercentValue((lowAvg / 100) * lowFreqMagnify);
+      //clrScr5.getPercentValue((midAvg / 100) * hiFreqMagnify);
+      //clrScr6.getPercentValue((hiAvg / 100) * midFreqMagnify);
+      clrScr4.setPercentValue((lowAvg / 100) * lowFreqMagnify);
+      clrScr5.setPercentValue((midAvg / 100) * hiFreqMagnify);
+      clrScr6.setPercentValue((hiAvg / 100) * midFreqMagnify);
     }
     
     else if (avgModeOn == true) {
-      clrScr4.getPercentValue((totalAvg / 100) * lowFreqMagnify);
-      clrScr5.getPercentValue((totalAvg / 100) * hiFreqMagnify);
-      clrScr6.getPercentValue((totalAvg / 100) * midFreqMagnify);
+      //clrScr4.getPercentValue((totalAvg / 100) * lowFreqMagnify);
+      //clrScr5.getPercentValue((totalAvg / 100) * hiFreqMagnify);
+      //clrScr6.getPercentValue((totalAvg / 100) * midFreqMagnify);
+      clrScr4.setPercentValue((totalAvg / 100) * lowFreqMagnify);
+      clrScr5.setPercentValue((totalAvg / 100) * hiFreqMagnify);
+      clrScr6.setPercentValue((totalAvg / 100) * midFreqMagnify);
     }
 //===============================================================================
 // END OF AUDIO MODE TOGGLE CONTROLS
