@@ -601,110 +601,62 @@ class ColorScroller5 {
         }
         
         if (c1b < c2b) { // 25 < 100 
-          if (v2 > v2NewMax) {
-            v2 -= v2Incr;
-            
-            if (v2 <= 0) {
-              v2 += 100;
-            }
+          if (v2 < v2NewMax) {
+            v2 += v2Incr;
           }
           
-          else if (v2 < v2NewMax) {
-            v2 += v2Incr;
-            
-            if (v2 >= 100) {
-              v2 -= 100;
-            }
+          else if (v2 > v2NewMax) {
+            v2 -= v2Incr;
           }
         }
         
         else if (c1b > c2b) { // 100 > 25 
           if (v2 < v2NewMax) {
             v2 += v2Incr;
-            
-            if (v2 >= 100) {
-              v2 -= 100;
-            }
           }
           
           else if (v2 > v2NewMax) {
             v2 -= v2Incr;
-            
-            if (v2 <= 0) {
-              v2 += 100;
-            }
           }
         }
         
         if (c1c < c2c) { // 25 < 100 
-          if (v3 > v3NewMax) {
-            v3 -= v3Incr;
-            
-            if (v3 <= 0) {
-              v3 += 100;
-            }
+          if (v3 < v3NewMax) {
+            v3 += v3Incr;
           }
           
-          else if (v3 < v3NewMax) {
-            v3 += v3Incr;
-            
-            if (v3 >= 100) {
-              v3 -= 100;
-            }
+          else if (v3 > v3NewMax) {
+            v3 -= v3Incr;
           }
         }
         
         else if (c1c > c2c) { // 100 > 25 
           if (v3 < v3NewMax) {
             v3 += v3Incr;
-            
-            if (v3 >= 100) {
-              v3 -= 100;
-            }
           }
           
           else if (v3 > v3NewMax) {
             v3 -= v3Incr;
-            
-            if (v3 <= 0) {
-              v3 += 100;
-            }
           }
         }
         
         if (c1alpha < c2alpha) { // 25 < 100 
-          if (vAlpha > vAlphaNewMax) {
-            vAlpha -= vAlphaIncr;
-            
-            if (vAlpha <= 0) {
-              vAlpha += 100;
-            }
+          if (vAlpha < vAlphaNewMax) {
+            vAlpha += vAlphaIncr;
           }
           
-          else if (vAlpha < vAlphaNewMax) {
-            vAlpha += vAlphaIncr;
-            
-            if (vAlpha >= 100) {
-              vAlpha -= 100;
-            }
+          else if (vAlpha > vAlphaNewMax) {
+            vAlpha -= vAlphaIncr;
           }
         }
         
         else if (c1alpha > c2alpha) { // 100 > 25 
           if (vAlpha < vAlphaNewMax) {
             vAlpha += vAlphaIncr;
-            
-            if (vAlpha >= 100) {
-              vAlpha -= 100;
-            }
           }
           
           else if (vAlpha > vAlphaNewMax) {
-            vAlpha += vAlphaIncr;
-            
-            if (vAlpha <= 0) {
-              vAlpha += 100;
-            }
+            vAlpha -= vAlphaIncr;
           }
         }
       }
